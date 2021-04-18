@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/start"
+        android:layout_height="200dp" >
+        <Constraint android:id="@+id/search"
+            android:layout_height="45dp"
+            android:layout_width="300dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@id/title_search"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+        <Constraint android:id="@+id/barcode"
+            android:layout_height="45dp"
+            android:layout_width="45dp"
+            android:layout_marginStart="17dp"
+            app:layout_constraintLeft_toRightOf="@id/search"
+            app:layout_constraintTop_toTopOf="@id/search"
+            app:layout_constraintBottom_toBottomOf="@id/search"
+            />
+        <Constraint android:id="@+id/title_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            app:layout_constraintLeft_toLeftOf="@id/search"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <Constraint android:id="@+id/my_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search"
+            app:layout_constraintBottom_toTopOf="@id/bottom"
+            />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end"
+        >
+        <Constraint android:id="@+id/search"
+            android:layout_height="35dp"
+            android:layout_width="match_parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+        <Constraint android:id="@+id/barcode"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            app:layout_constraintLeft_toRightOf="@id/search"
+            app:layout_constraintTop_toTopOf="@id/search"
+            app:layout_constraintBottom_toBottomOf="@id/search"
+            />
+        <Constraint android:id="@+id/title_search"
+           android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/search"
+            />
+        <Constraint android:id="@+id/my_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="00dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search"
+            app:layout_constraintBottom_toTopOf="@id/bottom"
+            />
+    </ConstraintSet>
+
+    <Transition
+        app:motionInterpolator="easeIn"
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start" >
+    <OnSwipe
+        app:dragDirection="dragUp"
+        app:touchAnchorId="@+id/my_scrollview"
+        app:moveWhenScrollAtTop="true"
+        app:touchAnchorSide="top"
+        />
+    </Transition>
+</MotionScene>

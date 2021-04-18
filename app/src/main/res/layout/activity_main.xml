@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/motion"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/leroy"
+    tools:context=".MainActivity"
+
+    app:layoutDescription="@xml/activity_main_scene">
+
+
+        <SearchView
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:queryHint="Поиск"
+            android:queryBackground="@android:color/transparent"
+            android:background="@drawable/search_layout"
+            android:transitionName="@id/start"
+            android:iconifiedByDefault="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_search"
+            app:layout_constraintBottom_toBottomOf="parent">
+        </SearchView>
+
+        <ImageButton
+            android:id="@+id/barcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/barcode"
+            android:scaleType="fitXY"
+            android:padding="0dp"
+            android:layout_margin="0dp"
+            android:background="@drawable/search_layout"
+            app:layout_constraintLeft_toRightOf="@id/search"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/search"
+            app:layout_constraintBottom_toBottomOf="@id/search"
+            />
+
+        <TextView
+            android:id="@+id/title_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Поиск товаров"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/search"
+            />
+    <androidx.core.widget.NestedScrollView
+            android:id="@+id/my_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/white"
+            android:overScrollMode="never"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search"
+            app:layout_constraintBottom_toTopOf="@id/bottom"
+            >
+        <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/linear"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_1"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="25dp"
+                    android:paddingEnd="10dp"
+                    android:layout_height="190dp" />
+
+                <TextView
+                    android:id="@+id/recently_seen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/black"
+                    android:text="Недавно просмотренные"
+                    android:fontFamily="casual"
+                    android:textStyle="bold"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                     android:id="@+id/recycler_2"
+                     android:layout_marginTop="15dp"
+                     android:layout_width="match_parent"
+                     android:layout_height="260dp" />
+                     <TextView
+                      android:id="@+id/limited_edition"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginStart="10dp"
+                      android:textColor="@color/black"
+                      android:text="Предложение ограничено"
+                      android:fontFamily="casual"
+                      android:textStyle="bold"/>
+
+                       <androidx.recyclerview.widget.RecyclerView
+                       android:id="@+id/recycler_3"
+                       android:layout_width="match_parent"
+                       android:layout_marginTop="15dp"
+                       android:layout_height="260dp" />
+
+                        <TextView
+                         android:id="@+id/best_price"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginStart="10dp"
+                         android:textColor="@color/black"
+                         android:text="Лучшая цена"
+                         android:fontFamily="casual"
+                         android:textStyle="bold"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                         android:id="@+id/recycler_4"
+                         android:layout_width="match_parent"
+                         android:layout_marginTop="15dp"
+                         android:layout_height="260dp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_menu"
+        app:labelVisibilityMode="labeled"
+        app:itemBackground="@color/white"
+        app:itemTextAppearanceActive="@style/BottomNavigationView"
+        app:itemTextAppearanceInactive="@style/BottomNavigationView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
